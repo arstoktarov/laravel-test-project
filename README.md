@@ -25,8 +25,8 @@
 ##### На весь проект ушло около 5 часов. 
 - Добавление данных (Миграции, Модели, Сидеры). 30 минут
 - Установка и настройка JWT. 1 час
-- Подготовка проекта (дополнения для Handler, добавление Casts, Traits, Observers). 1.5-2 часа
-- Controllers and Routes. 1 час
+- Подготовка проекта (дополнения для Handler, добавление Casts, Traits, Observers). 1 часа
+- Controllers and Routes. 1.5-2 час
 - Тестирование API через Postman и исправления. 1 час
 
 **Для _авторизации_ в проекте используется библотека для JWT(JsonWebToken)** https://jwt-auth.readthedocs.io/en/develop/laravel-installation/
