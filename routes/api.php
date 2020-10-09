@@ -33,8 +33,8 @@ Route::namespace('v1\Rest')->prefix('v1')->group(function() {
     );
 
     Route::post('products/{product}/update', 'ProductController@update');
-    Route::resource('categories.products', 'ProductController')->except([
+    Route::resource('categories.products', 'ProductController')->except(
         'create', 'edit', 'update'
-    ])->shallow();
+    )->shallow();
 
 });
