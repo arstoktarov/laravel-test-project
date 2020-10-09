@@ -1,78 +1,89 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Тестовый проект на Laravel Framework.
 
-## About Laravel
+#### Основной функционал:
+##### Простейшее API для каталога товаров. Приложение должно содержать:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Категории товаров
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Конкретные товары, которые принадлежат к какой-то категории (один товар может принадлежать нескольким категориям)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Пользователей, которые могут авторизоваться
 
-## Learning Laravel
+##### Возможные действия:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Получение списка всех категорий
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Получение списка товаров в конкретной категории
 
-## Laravel Sponsors
+- Авторизация пользователей
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Добавление/Редактирование/Удаление категории (для авторизованных пользователей)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+- Добавление/Редактирование/Удаление товара (для авторизованных пользователей)
 
-## Contributing
+##### На весь проект ушло около 5 часов. 
+- Добавление данных (Миграции, Модели, Сидеры). 30 минут
+- Установка и настройка JWT. 1 час
+- Подготовка проекта (дополнения для Handler, добавление Casts, Traits, Observers). 1 час
+- Controllers and Routes, Requests and ApiResources. 2-2.5 часа
+- Тестирование API через Postman и исправления. 1 час
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Для _авторизации_ в проекте используется библотека для JWT(JsonWebToken)** https://jwt-auth.readthedocs.io/en/develop/laravel-installation/
 
-## Code of Conduct
+**Ссылка на Postman Collection:** https://www.getpostman.com/collections/83c63a576255c6b5f149
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Насчет Сервисного слоя и Репозиториев. Репозитории в проектах не использовал, а использовать сервисный слой в этом тестовом проекте не вижу смысла, т.к. контроллеры и без этого достаточно тонкие за счет кастомных Request и ApiResource классов.**
 
-## Security Vulnerabilities
+## Инструкции для разворачивания.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Необходимы (документация Laravel 7.0):
+- PHP >= 7.2.5
+- BCMath PHP Extension
+- Ctype PHP Extension
+- Fileinfo PHP extension
+- JSON PHP Extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
 
-## License
+Также конечно, должно быть установлено одно из баз данных (желательно MYSQL)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Установка проекта (пошагово):
+```
+> git clone https://github.com/arstoktarov/laravel-test-project.git
+
+> cd /path_to_project
+
+> composer install
+
+> copy .env.example .env
+
+> Настроить APP_URL, DB_CONNECTION, DB_DATABASE, DB_PASSWORD в файле .env
+
+> php artisan key:generate
+
+> php artisan jwt:secret
+
+> php artisan migrate
+
+> php artisan db:seed
+```
+#### Дополнительные объяснения насчет реализации:
+
+- ##### App\Casts: Image
+Добавлен для сохранения image и возвращения полного url к image из хранилища.
+
+- ##### App\Observers
+При удалении продукта нужно удалить также его картинку из хранилища. 
+Для решения этой проблемы был создан ProductObserver
+
+Аналогично с удалением категории, но также вместе с категорией удаляются все его продукты.
+
+- ##### App\Traits: HashesPassword
+В трейте HashesPassword есть функция-мутатор для модельки user которая хеширует атрибут password.
+
+- ##### App\Exception\Handler.php
+В хендлере добавлены несколько проверок предназначенные для возвращения json вместо html.
