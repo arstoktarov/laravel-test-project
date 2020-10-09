@@ -25,6 +25,8 @@
 
 **Для _авторизации_ в проекте используется библотека для JWT(JsonWebToken)** https://jwt-auth.readthedocs.io/en/develop/laravel-installation/
 
+**Ссылка на Postman Collection:** https://www.getpostman.com/collections/83c63a576255c6b5f149
+
 ## Инструкции для разворачивания.
 
 Необходимы (документация Laravel 7.0):
@@ -42,7 +44,7 @@
 Также конечно, должно быть установлено одно из баз данных (желательно MYSQL)
 
 #### Установка проекта (пошагово):
-
+```
 > git clone https://github.com/arstoktarov/laravel-test-project.git
 
 > cd /path_to_project
@@ -51,6 +53,8 @@
 
 > copy .env.example .env
 
+> Настроить APP_URL, DB_CONNECTION, DB_DATABASE, DB_PASSWORD в файле .env
+
 > php artisan key:generate
 
 > php artisan jwt:secret
@@ -58,7 +62,7 @@
 > php artisan migrate
 
 > php artisan db:seed
-
+```
 #### Дополнительные объяснения насчет реализации:
 
 ##### App\Casts: Image
